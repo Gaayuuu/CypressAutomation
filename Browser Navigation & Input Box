@@ -1,0 +1,18 @@
+describe('Test 1', () => {
+
+    it('Browser Navigation', () => {
+        cy.visit('https://www.flipkart.com/')
+        cy.wait(2000)
+            cy.contains('Mobiles').click()
+            //cy.go('back')
+            cy.go(-1) // equivalent to clicking back button            
+            cy.wait(2000)
+            //cy.go('forward')
+            cy.go(1) // equivalent to clicking forward button
+            cy.get('.zDPmFV').type('Perfumes')   
+            cy.get('.MJG8Up').click()
+            cy.wait(2000)
+            cy.go('back')
+
+})
+})
