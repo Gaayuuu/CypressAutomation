@@ -1,0 +1,70 @@
+describe('Implisit Assertion', ()=>{
+    //
+    it('should',()=>{
+        cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+        cy.url().should('include','orangehrmlive.com')
+        cy.wait(2000)
+        cy.url().should('eq','https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+        cy.url().should('contains','orangehrm')
+
+        //cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+        //.should('include','orangehrm.com')
+        //.should('eq','https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+        //.should('contains','orangehrm')
+
+    })
+
+    it('And',()=>{
+        cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+        cy.url().should('include','orangehrmlive.com')
+        .and('eq','https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+        .and('contains','orangehrm')
+        .and('not.contains','whitehrm12')
+
+        cy.title().should('include','Orange')
+        .and('eq','OrangeHRM')
+        .and('not.eq','OrangeHRM10')
+        .and('contains',"HRM")
+
+        
+        
+        cy.get('.orangehrm-login-branding > img').should('be.visible') //logo visiblity
+        .and('exist') //logo exixt
+
+        //to see how many links are present
+        cy.xpath("//a").should('have.length','5') //no.of links
+
+
+
+    cy.get("input[placeholder='Username']").type('Gayathri')
+    cy.get("input[placeholder='Username']").should('have.value','Gayathri')
+
+    })
+
+})
+describe('Explisit Assertion', ()=>{
+    //
+    it.only('Expect',()=>{
+        cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+        cy.wait(2000)
+        cy.get("input[placeholder='Username']").type('Admin')
+        cy.wait(2000)
+        cy.get("input[placeholder='Password']").type('admin123')
+        cy.get('.oxd-button').click()
+
+        let expName="Test user";
+
+        cy.get(".oxd-userdropdown-name").then( (x) =>{
+             let actName = x.text()
+
+                // BDD Style
+            expect(actName).to.equal(expName)
+            expect(actName).to.not.equal(expName) //negative Scenario
+
+                 // TDD Style
+            assert.equal(actName, expName)
+            assert.notEqual(actName, expName)
+})
+})
+
+})
