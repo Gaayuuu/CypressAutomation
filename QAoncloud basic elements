@@ -1,0 +1,11 @@
+/// <reference types="Cypress" />
+describe('Qaon Cloud Test',()=>{    
+it('Basics Elements',()=>{        
+cy.visit('https://www.qaoncloud.com/')
+    })
+        it('should display the banner', () => {            
+// Ensure the banner element is visible            
+cy.get('#hs-poly-svg').should('be.visible')        })
+                
+
+    })
