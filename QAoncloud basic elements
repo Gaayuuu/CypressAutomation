@@ -1,11 +1,40 @@
-/// <reference types="Cypress" />
-describe('Qaon Cloud Test',()=>{    
-it('Basics Elements',()=>{        
-cy.visit('https://www.qaoncloud.com/')
-    })
-        it('should display the banner', () => {            
-// Ensure the banner element is visible            
-cy.get('#hs-poly-svg').should('be.visible')        })
-                
+describe('Sample Automation', () => {
+    beforeEach(() => {
+    cy.visit('https://www.qaoncloud.com/')
+})
 
-    })
+it('logo ', () => { 
+    cy.xpath('/html[1]/body[1]/div[4]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]').should('be.visible')
+})
+
+it('Customer logo ', () => {
+    //assert customers logo           
+    cy.wait(2000)
+    cy.get('[class="pin-icon pin-normal-icon"]').eq(0).should('be.visible')
+    cy.get('[class="pin-icon pin-normal-icon"]').eq(6).should('be.visible')
+    cy.get('[class="pin-icon pin-normal-icon"]').eq(8).should('be.visible')
+
+    
+})
+
+it('Headers ', () => {
+    cy.contains('SERVICES').should('exist')
+    cy.contains('SOLUTIONS').should('exist')
+    cy.contains('Industries Served').should('exist')
+    cy.contains('Banking & Financial Services').should('exist')
+    cy.contains('We Love To Help Craft Quality Software').should('exist')
+    cy.contains('Want To Know More About QAonCloud?').should('exist')
+})
+
+it('Footer', () => {
+    //assert footer
+    //company
+    cy.get('.elementor-element-b7925ff > .elementor-widget-container > .elementor-heading-title').should('exist')
+    cy.wait(2000)
+    //quick links
+    cy.get('.elementor-element-55ee9fb > .elementor-widget-container > .elementor-heading-title').should('exist')
+    cy.wait(2000)
+   
+    
+})
+})
