@@ -1,0 +1,23 @@
+context("page responsiveness", () => {
+  it("Facebook login", () => {
+    cy.visit("https://practicetestautomation.com/practice-test-login/");
+    cy.get("#username").type("student");
+    cy.get("#password").type("Password123");
+    cy.get("#submit").click();
+  });
+  it("Facebook login ipad-mini", () => {
+    cy.viewport("ipad-mini");
+    cy.visit("https://practicetestautomation.com/practice-test-login/");
+    cy.get("#username").type("student");
+    cy.get("#password").type("Password123");
+    cy.get("#submit").click();
+  });
+  it("Facebook login iphone-xr", () => {
+    cy.viewport("iphone-xr");
+    cy.visit("https://practicetestautomation.com/practice-test-login/");
+    cy.get("#username").type("student");
+    cy.get("#password").type("Password123");
+    cy.get("#submit").click();
+  });
+ 
+});
