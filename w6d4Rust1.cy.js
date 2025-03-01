@@ -22,9 +22,9 @@ describe('Restful Booker POST & GET', () => {
   it('POST-Create Booking', function () {
     // Booking data
     var Booking = {
-      "firstname": "Preethi",
-      "lastname": "Srinivasan",
-      "totalprice": 1500,
+      "firstname": "Gayathri",
+      "lastname": "Jayaprakash",
+      "totalprice": 5500,
       "depositpaid": true,
       "bookingdates": {
         "checkin": "2025-05-01",
@@ -41,9 +41,9 @@ describe('Restful Booker POST & GET', () => {
       cy.log("Booking ID:", bookingid);
 
       // Validate response body
-      expect(response.body.booking.firstname).to.eq('Preethi');
-      expect(response.body.booking.lastname).to.eq('Srinivasan');
-      expect(response.body.booking.totalprice).to.eq(1500);
+      expect(response.body.booking.firstname).to.eq('Gayathri');
+      expect(response.body.booking.lastname).to.eq('Jayapraksh');
+      expect(response.body.booking.totalprice).to.eq(5500);
       expect(response.body.booking.depositpaid).to.eq(true);
       expect(response.body.booking.bookingdates.checkin).to.eq('2025-05-01');
       expect(response.body.booking.bookingdates.checkout).to.eq('2025-05-06');
@@ -56,9 +56,9 @@ describe('Restful Booker POST & GET', () => {
       expect(response.status).to.eq(200);
 
       // Validate the booking details
-      expect(response.body.firstname).to.eq('Preethi');
-      expect(response.body.lastname).to.eq('Srinivasan');
-      expect(response.body.totalprice).to.eq(1500);
+      expect(response.body.firstname).to.eq('Gayathri');
+      expect(response.body.lastname).to.eq('Jayapraksh');
+      expect(response.body.totalprice).to.eq(5500);
       expect(response.body.depositpaid).to.eq(true);
       expect(response.body.bookingdates.checkin).to.eq('2025-05-01');
       expect(response.body.bookingdates.checkout).to.eq('2025-05-06');
@@ -75,7 +75,7 @@ describe('Restful Booker POST & GET', () => {
 })
 
 it('GET-Get specific data', function () {
-    cy.request('GET', `${baseUrl}/booking?firstname=Preethi&lastname=Srinivasan`).then((Response) => {  // validate by specific data "firstname=Preethi&lastname=Srinivasan"
+    cy.request('GET', `${baseUrl}/booking?firstname=Gayathri&lastname=Jayaprakash`).then((Response) => {  // validate by specific data "firstname=Preethi&lastname=Srinivasan"
         expect(Response.status).equal(200)   
         cy.log(JSON.stringify(Response))        // To log the entire response
     })
