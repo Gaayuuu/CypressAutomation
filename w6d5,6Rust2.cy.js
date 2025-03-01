@@ -60,9 +60,9 @@ describe('Restful Booker PUT & PATCH & DELETE', () => {
       }
     }).then((response) => {
       expect(response.status).to.eq(200);
-      expect(response.body.firstname).equal("Maya");
-      expect(response.body.lastname).to.eq("Krishnan");
-      expect(response.body.totalprice).equal(2000);
+      expect(response.body.firstname).equal("Jaya");
+      expect(response.body.lastname).to.eq("Pravin");
+      expect(response.body.totalprice).equal(3000);
       expect(response.body.depositpaid).equal(true);
       expect(response.body.bookingdates.checkin).equal("2028-03-02");
       expect(response.body.bookingdates.checkout).equal("2028-03-08");
@@ -84,8 +84,8 @@ describe('Restful Booker PUT & PATCH & DELETE', () => {
       }
     }).then((response) => {
       expect(response.status).to.eq(200);   
-      expect(response.body.firstname).equal("Dev");
-      expect(response.body.totalprice).equal(1000);
+      expect(response.body.firstname).equal("Priya");
+      expect(response.body.totalprice).equal(5000);
       expect(response.body.additionalneeds).equal("Dinner");
     });
   });
