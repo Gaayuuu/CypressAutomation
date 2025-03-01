@@ -20,8 +20,8 @@ describe('Restful Booker PUT & PATCH & DELETE', () => {
 
 // 2. Create Booking
       const Booking = {
-        "firstname": "Preethi",
-        "lastname": "Srinivasan",
+        "firstname": "Gayathri",
+        "lastname": "Jayaprakash",
         "totalprice": 1500,
         "depositpaid": true,
         "bookingdates": {
@@ -48,9 +48,9 @@ describe('Restful Booker PUT & PATCH & DELETE', () => {
         "Authorization": "Basic YWRtaW46cGFzc3dvcmQxMjM="
       },
       body: {
-        "firstname": "Maya",
-        "lastname": "Krishnan",
-        "totalprice": 2000,
+        "firstname": "Jaya",
+        "lastname": "Pravin",
+        "totalprice": 3000,
         "depositpaid": true,
         "bookingdates": {
           "checkin": "2028-03-02",
@@ -78,8 +78,8 @@ describe('Restful Booker PUT & PATCH & DELETE', () => {
         "Authorization": "Basic YWRtaW46cGFzc3dvcmQxMjM="
       },
       body: {
-        "firstname": "Dev",
-        "totalprice": 1000,
+        "firstname": "Priya",
+        "totalprice": 5000,
         "additionalneeds": "Dinner"
       }
     }).then((response) => {
